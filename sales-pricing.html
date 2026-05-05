@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sales Performance &amp; Pricing Analysis — Any Kwok</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+      .actions .button { min-width: 160px; text-align: center; }
+
+      /* ── Remove decorative lines through date text ── */
+      header.major > .date::before,
+      header.major > .date::after {
+        display: none !important;
+      }
+
+      /* ── Stat cards ── */
+      .stat-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.8rem 0 2rem;
+      }
+      .stat-card {
+        flex: 1 1 120px;
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-top: 3px solid #d35400;
+        border-radius: 6px;
+        padding: 1rem 1.1rem 0.9rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      }
+      .stat-num {
+        display: block;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #d35400;
+        line-height: 1.1;
+      }
+      .stat-label {
+        display: block;
+        font-size: 0.78rem;
+        color: #666;
+        margin-top: 0.3rem;
+        letter-spacing: 0.03em;
+      }
+
+      /* ── Pipeline steps ── */
+      .pipeline {
+        list-style: none;
+        padding: 0;
+        margin: 1.2rem 0 2rem;
+        counter-reset: pipe;
+      }
+      .pipeline li {
+        display: flex;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.6rem;
+        background: #fafafa;
+        border: 1px solid rgba(0,0,0,0.07);
+        border-left: 3px solid #d35400;
+        border-radius: 0 6px 6px 0;
+        counter-increment: pipe;
+        align-items: flex-start;
+      }
+      .pipe-num {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #d35400;
+        min-width: 1.5rem;
+        flex-shrink: 0;
+        line-height: 1.4;
+      }
+      .pipe-num::before { content: counter(pipe); }
+      .pipe-body strong {
+        display: block;
+        color: #222;
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+      }
+      .pipe-body span {
+        font-size: 0.82rem;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      /* ── Tech tags ── */
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0.8rem 0 1.6rem;
+      }
+      .tech-tag {
+        background: rgba(211,84,0,0.1);
+        border: 1px solid rgba(211,84,0,0.3);
+        color: #b34400;
+        padding: 0.22rem 0.7rem;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
+      }
+
+      /* ── Image captions ── */
+      .img-caption {
+        font-size: 0.8rem;
+        color: #777;
+        text-align: center;
+        margin-top: 0.4rem;
+        margin-bottom: 1.2rem;
+        font-style: italic;
+      }
+
+      /* ── Outcome highlight ── */
+      .outcome-block {
+        background: rgba(211,84,0,0.06);
+        border: 1px solid rgba(211,84,0,0.22);
+        border-left: 4px solid #d35400;
+        border-radius: 6px;
+        padding: 1.2rem 1.4rem;
+        margin: 1.4rem 0;
+      }
+      .outcome-block p {
+        margin: 0 0 0.6rem;
+        font-size: 0.92rem;
+        color: #333;
+        line-height: 1.6;
+      }
+      .outcome-block p:last-child { margin-bottom: 0; }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Any's Portfolio</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="sales-pricing.html">Sales &amp; Pricing</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="https://www.linkedin.com/in/anykwok/" class="icon brands fa-linkedin" target="_blank" rel="noopener">
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Any-KHY" class="icon brands fa-github" target="_blank" rel="noopener">
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:anyknz@gmail.com" class="icon solid fa-envelope">
+              <span class="label">Email</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Project Hero -->
+        <article class="post featured">
+          <header class="major">
+            <span class="date">Business Analytics &nbsp;·&nbsp; Data &amp; Reporting</span>
+            <h1>Sales Performance &amp;<br />Pricing Analysis</h1>
+            <p>
+              An end-to-end MySQL and Power BI workflow that transforms raw sales data into
+              an interactive dashboard — surfacing product performance, pricing effectiveness,
+              and profitability insights for business decision-making.
+            </p>
+          </header>
+          <span class="image main">
+            <img src="images/cover-sales.svg" alt="Sales Performance and Pricing Analysis" />
+          </span>
+          <ul class="actions special">
+            <li>
+              <a href="https://github.com/Any-KHY/Sales-Performance-Dashboard-with-Pricing-Insights-SQL-Power-BI-"
+                class="button" target="_blank" rel="noopener">View on GitHub</a>
+            </li>
+            <li><a href="index.html" class="button">Back to Portfolio</a></li>
+          </ul>
+        </article>
+
+        <!-- At a Glance -->
+        <section class="post">
+          <header class="major"><h2>At a Glance</h2></header>
+          <div class="stat-row">
+            <div class="stat-card">
+              <span class="stat-num">3</span>
+              <span class="stat-label">Data sources integrated</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">Multi-yr</span>
+              <span class="stat-label">Sales data coverage</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">1</span>
+              <span class="stat-label">Unified dashboard</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">E2E</span>
+              <span class="stat-label">Raw CSV to report</span>
+            </div>
+          </div>
+          <p>
+            This project takes a multi-year sales dataset spanning orders, customers, and
+            products — and turns it into a single interactive Power BI dashboard that
+            stakeholders can use to answer real business questions without writing queries.
+          </p>
+          <p style="font-size:0.85rem; color:#666;">
+            <em>Note: this project was adapted from a guided tutorial. The data pipeline was
+            rebuilt using MySQL in place of SQL Server, and the dashboard layout was
+            independently redesigned.</em>
+          </p>
+        </section>
+
+        <!-- The Problem -->
+        <section class="post">
+          <header><h2>The Problem</h2></header>
+          <p>
+            Sales data was spread across multiple CSV files with inconsistent formats and
+            missing values. Without a structured data model, it was difficult to answer
+            questions like <em>which products drive the most margin?</em> or
+            <em>where is pricing leaking value?</em>
+          </p>
+          <p>
+            Stakeholders needed a single source of truth — one they could explore themselves
+            without depending on ad-hoc queries every time a business question came up.
+          </p>
+        </section>
+
+        <!-- Workflow -->
+        <section class="post">
+          <header><h2>How It Works</h2></header>
+          <ol class="pipeline">
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Data ingestion</strong>
+                <span>Import multi-year orders, customers, and products CSV files into MySQL.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Data cleaning</strong>
+                <span>Handle missing values, fix inconsistent formats, and deduplicate records using SQL.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Data modelling</strong>
+                <span>Design normalised fact and dimension tables for orders, products, and customers.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>SQL analysis</strong>
+                <span>Write queries to extract key metrics — revenue, margin, average price, repeat-purchase rate.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Dashboard build</strong>
+                <span>Connect Power BI to MySQL, create DAX measures, and design interactive visuals with drill-down and cross-filtering.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Insight delivery</strong>
+                <span>Translate dashboard findings into clear, actionable pricing and performance recommendations.</span>
+              </div>
+            </li>
+          </ol>
+
+          <div class="tech-tags">
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">Power BI</span>
+            <span class="tech-tag">DAX</span>
+            <span class="tech-tag">Excel</span>
+            <span class="tech-tag">Data modelling</span>
+            <span class="tech-tag">KPI design</span>
+          </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section class="post">
+          <header><h2>The Dashboard</h2></header>
+          <p>
+            The Power BI dashboard gives stakeholders one place to answer the questions that
+            matter most: which product lines drive revenue and margin, where pricing is
+            underperforming, and how results trend over time.
+          </p>
+          <span class="image fit" style="margin-top:1rem;">
+            <img src="images/dashboard-sales.jpg" alt="Power BI Sales Performance Dashboard" />
+          </span>
+          <p class="img-caption">Interactive Power BI dashboard with product performance matrix, pricing analysis, and trend views.</p>
+          <p>
+            Key views include a product performance matrix, pricing effectiveness by category,
+            revenue and margin trend lines, and a customer order analysis. All visuals support
+            drill-down and cross-filtering so stakeholders can explore the data themselves.
+          </p>
+        </section>
+
+        <!-- Outcome -->
+        <section class="post">
+          <header><h2>Outcome</h2></header>
+          <div class="outcome-block">
+            <p>
+              Stakeholders gained a single, interactive view of pricing effectiveness across
+              products — making it straightforward to spot underperforming items and refine
+              pricing strategy.
+            </p>
+            <p>
+              The underlying data model is reusable: new sales periods can be plugged into
+              the same structure without rework, making the dashboard a sustainable reporting
+              asset rather than a one-off analysis.
+            </p>
+          </div>
+          <ul class="actions special" style="margin-top:2rem;">
+            <li>
+              <a href="https://github.com/Any-KHY/Sales-Performance-Dashboard-with-Pricing-Insights-SQL-Power-BI-"
+                class="button" target="_blank" rel="noopener">View on GitHub</a>
+            </li>
+            <li><a href="index.html" class="button">Back to Portfolio</a></li>
+          </ul>
+        </section>
+
+      </div><!-- /main -->
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:anyknz@gmail.com">anyknz@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="https://www.linkedin.com/in/anykwok/" class="icon brands alt fa-linkedin"
+                  target="_blank" rel="noopener"><span class="label">LinkedIn</span></a>
+              </li>
+              <li>
+                <a href="https://github.com/Any-KHY" class="icon brands alt fa-github"
+                  target="_blank" rel="noopener"><span class="label">GitHub</span></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul><li>&copy; Any Kwok</li><li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li></ul>
+      </div>
+
+    </div><!-- /wrapper -->
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

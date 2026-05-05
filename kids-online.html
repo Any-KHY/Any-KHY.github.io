@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Kids Online Brand Exposure Detection — Any Kwok</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+      .actions .button { min-width: 160px; text-align: center; }
+
+      /* ── Remove decorative lines through date text ── */
+      header.major > .date::before,
+      header.major > .date::after {
+        display: none !important;
+      }
+
+      /* ── Stat cards ── */
+      .stat-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.8rem 0 2rem;
+      }
+      .stat-card {
+        flex: 1 1 120px;
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-top: 3px solid #d35400;
+        border-radius: 6px;
+        padding: 1rem 1.1rem 0.9rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      }
+      .stat-num {
+        display: block;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #d35400;
+        line-height: 1.1;
+      }
+      .stat-label {
+        display: block;
+        font-size: 0.78rem;
+        color: #666;
+        margin-top: 0.3rem;
+        letter-spacing: 0.03em;
+      }
+
+      /* ── Pipeline steps ── */
+      .pipeline {
+        list-style: none;
+        padding: 0;
+        margin: 1.2rem 0 2rem;
+        counter-reset: pipe;
+      }
+      .pipeline li {
+        display: flex;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.6rem;
+        background: #fafafa;
+        border: 1px solid rgba(0,0,0,0.07);
+        border-left: 3px solid #d35400;
+        border-radius: 0 6px 6px 0;
+        counter-increment: pipe;
+        align-items: flex-start;
+      }
+      .pipe-num {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #d35400;
+        min-width: 1.5rem;
+        flex-shrink: 0;
+        line-height: 1.4;
+      }
+      .pipe-num::before { content: counter(pipe); }
+      .pipe-body strong {
+        display: block;
+        color: #222;
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+      }
+      .pipe-body span {
+        font-size: 0.82rem;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      /* ── Tech tags ── */
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0.8rem 0 1.6rem;
+      }
+      .tech-tag {
+        background: rgba(211,84,0,0.1);
+        border: 1px solid rgba(211,84,0,0.3);
+        color: #b34400;
+        padding: 0.22rem 0.7rem;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
+      }
+
+      /* ── Image captions ── */
+      .img-caption {
+        font-size: 0.8rem;
+        color: #777;
+        text-align: center;
+        margin-top: 0.4rem;
+        margin-bottom: 1.2rem;
+        font-style: italic;
+      }
+
+      /* ── Outcome highlight ── */
+      .outcome-block {
+        background: rgba(211,84,0,0.06);
+        border: 1px solid rgba(211,84,0,0.22);
+        border-left: 4px solid #d35400;
+        border-radius: 6px;
+        padding: 1.2rem 1.4rem;
+        margin: 1.4rem 0;
+      }
+      .outcome-block p {
+        margin: 0 0 0.6rem;
+        font-size: 0.92rem;
+        color: #333;
+        line-height: 1.6;
+      }
+      .outcome-block p:last-child { margin-bottom: 0; }
+
+      /* ── Future work ── */
+      .future-list {
+        list-style: none;
+        padding: 0;
+        margin: 0.8rem 0 1rem;
+      }
+      .future-list li {
+        padding: 0.5rem 0.8rem 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        border-left: 2px solid rgba(211,84,0,0.4);
+        font-size: 0.9rem;
+        color: #444;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Any's Portfolio</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="kids-online.html">Kids Online</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="https://www.linkedin.com/in/anykwok/" class="icon brands fa-linkedin" target="_blank" rel="noopener">
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Any-KHY" class="icon brands fa-github" target="_blank" rel="noopener">
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:anyknz@gmail.com" class="icon solid fa-envelope">
+              <span class="label">Email</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Project Hero -->
+        <article class="post featured">
+          <header class="major">
+            <span class="date">Featured Project &nbsp;·&nbsp; Master's Thesis &nbsp;·&nbsp; 2025 &ndash; 2026</span>
+            <h1>Kids Online Brand Exposure<br />Detection Pipeline</h1>
+            <p>
+              A semi-automated computer vision pipeline that turns raw screen-recorded video
+              into structured brand exposure data — combining YOLO, OCR, and CLIP-based
+              zero-shot semantic validation at scale.
+            </p>
+          </header>
+          <span class="image main">
+            <img src="images/kids-online-cover.jpg" alt="Kids Online project cover" />
+          </span>
+          <ul class="actions special">
+            <li>
+              <a href="https://github.com/Any-KHY/Kids-Online-Brand-Exposure-Detection-Pipeline"
+                class="button" target="_blank" rel="noopener">View on GitHub</a>
+            </li>
+            <li><a href="index.html" class="button">Back to Portfolio</a></li>
+          </ul>
+        </article>
+
+        <!-- Research Aim -->
+        <section class="post">
+          <header class="major"><h2>Research Aim</h2></header>
+          <p>
+            This project investigates the feasibility of a semi-automated pipeline for detecting
+            brand exposure in screen-recorded data. The framework integrates object detection,
+            optical character recognition, and semantic reasoning to support large-scale analysis
+            in scenarios where frame-level annotations are unavailable.
+          </p>
+          <p>
+            Rather than aiming for precise exposure measurement, the system is designed as a
+            <strong>scalable screening tool</strong> — reducing manual review effort and producing
+            outputs directly usable for downstream research analysis.
+          </p>
+        </section>
+
+        <!-- At a Glance -->
+        <section class="post">
+          <header class="major"><h2>At a Glance</h2></header>
+          <div class="stat-row">
+            <div class="stat-card">
+              <span class="stat-num">700K+</span>
+              <span class="stat-label">Video frames processed</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">4</span>
+              <span class="stat-label">Models in ensemble</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">2 yrs</span>
+              <span class="stat-label">Real-world data covered</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">E2E</span>
+              <span class="stat-label">Fully automated pipeline</span>
+            </div>
+          </div>
+          <p>
+            This project was developed as my Master's thesis at the University of Otago to
+            support a large-scale study on how children are exposed to fast-food brand marketing
+            through everyday screen-recorded media.
+          </p>
+          <p>
+            The core challenge: convert high-volume, unstructured video into structured,
+            analysis-ready outputs — at a scale that made manual review completely impractical.
+          </p>
+        </section>
+
+        <!-- The Problem -->
+        <section class="post">
+          <header><h2>The Problem</h2></header>
+          <p>
+            Brand exposure in children's digital media hides in many forms — logos, product
+            packaging, app interfaces, and background content. Manually reviewing hours of video
+            is not scalable when the research goal requires consistent, reproducible detection
+            across a large dataset spanning two years.
+          </p>
+          <p>
+            Pixel-based object detection alone also falls short. Logos appear at varying sizes,
+            angles, and quality levels. Without a validation layer, ambiguous detections inflate
+            false positives significantly.
+          </p>
+        </section>
+
+        <!-- Pipeline -->
+        <section class="post">
+          <header><h2>How the Pipeline Works</h2></header>
+          <ol class="pipeline">
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Content-aware frame extraction</strong>
+                <span>Sample representative frames from raw video to reduce redundancy while preserving full temporal coverage.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>YOLO-based logo detection</strong>
+                <span>Run YOLOv11 and YOLO-World models in parallel — both trained on brand logo data to detect visual matches across varied conditions.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>OCR signal extraction</strong>
+                <span>Apply EasyOCR to capture brand names embedded in on-screen text, UI elements, and packaging copy.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>CLIP semantic validation</strong>
+                <span>Use zero-shot image-text similarity to verify ambiguous detections — reducing false positives from visual noise.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Ensemble scoring and filtering</strong>
+                <span>Combine YOLO confidence, OCR signal, and CLIP score into a single detection decision with configurable thresholds.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Exposure aggregation</strong>
+                <span>Group frame-level detections into structured brand exposure events with duration and frequency metrics.</span>
+              </div>
+            </li>
+          </ol>
+
+          <div class="tech-tags">
+            <span class="tech-tag">YOLOv11</span>
+            <span class="tech-tag">YOLO-World</span>
+            <span class="tech-tag">EasyOCR</span>
+            <span class="tech-tag">CLIP</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">Zero-shot learning</span>
+            <span class="tech-tag">Ensemble scoring</span>
+            <span class="tech-tag">Cloud processing</span>
+          </div>
+        </section>
+
+        <!-- Evaluation -->
+        <section class="post">
+          <header><h2>Evaluation: Threshold Tuning</h2></header>
+          <p>
+            A staged evaluation strategy was used to assess model behaviour across different
+            confidence thresholds and ensemble configurations before running the pipeline on
+            the full dataset.
+          </p>
+          <span class="image fit">
+            <img src="images/ko-eval-confidence.png"
+              alt="Frame-level performance under different confidence thresholds" />
+          </span>
+          <p class="img-caption">Precision, recall, and F1 score across confidence thresholds.</p>
+          <p>
+            Selecting a threshold involved a deliberate trade-off: higher confidence reduces
+            false positives but risks missing true exposures. The chart above guided the
+            calibration decision.
+          </p>
+        </section>
+
+        <section class="post">
+          <header><h2>Ensemble Tuning</h2></header>
+          <p>
+            Multiple combinations of YOLO, OCR, and CLIP ensemble weights were tested to find
+            the configuration that best balanced detection accuracy against false positive rate.
+          </p>
+          <div class="row">
+            <div class="col-6 col-12-medium">
+              <span class="image fit">
+                <img src="images/ko-eval-f1-heatmap.png"
+                  alt="Ensemble F1 heatmap" />
+              </span>
+              <p class="img-caption">F1 score across ensemble weight configurations.</p>
+            </div>
+            <div class="col-6 col-12-medium">
+              <span class="image fit">
+                <img src="images/ko-eval-fp-rate.png"
+                  alt="Ensemble false positive rate" />
+              </span>
+              <p class="img-caption">False positive rate across the same configurations.</p>
+            </div>
+          </div>
+          <span class="image fit" style="margin-top:0.6rem;">
+            <img src="images/ko-eval-tradeoff.png"
+              alt="Trade-off between false positives and F1 score" />
+          </span>
+          <p class="img-caption">Trade-off chart used to select the final ensemble configuration.</p>
+        </section>
+
+        <!-- Why hybrid -->
+        <section class="post">
+          <header><h2>Why a Hybrid Approach?</h2></header>
+          <p>
+            Each model covers a different failure mode:
+          </p>
+          <ul>
+            <li><strong>YOLOv11</strong> — high precision on known brand logos at pixel level.</li>
+            <li><strong>YOLO-World</strong> — a second fine-tuned detection model that complements YOLOv11 and improves coverage across different visual conditions.</li>
+            <li><strong>EasyOCR</strong> — catches brand names visible as on-screen text.</li>
+            <li><strong>CLIP</strong> — semantic validation to resolve ambiguous or conflicting signals.</li>
+          </ul>
+          <p>
+            No single model reliably handles all the visual variation in real-world screen recordings.
+            Combining them in an ensemble with configurable weighting makes the pipeline more
+            robust and tunable for different research precision requirements.
+          </p>
+        </section>
+
+        <!-- Outcome -->
+        <section class="post">
+          <header><h2>Outcome</h2></header>
+          <div class="outcome-block">
+            <p>
+              The pipeline processed over 700,000 video frames and produced structured brand
+              exposure outputs covering two years of real-world screen-recorded data.
+            </p>
+            <p>
+              It reduced the volume of footage requiring manual review and delivered results
+              in a format directly usable for downstream research analysis and reporting —
+              fulfilling its design goal as a scalable screening tool.
+            </p>
+          </div>
+        </section>
+
+        <!-- Limitations -->
+        <section class="post">
+          <header><h2>Limitations</h2></header>
+          <p>
+            Several limitations are acknowledged — primarily reflecting deliberate design
+            trade-offs made to prioritise system-level feasibility and scalability.
+          </p>
+          <ul class="future-list">
+            <li>
+              <strong>Limited optimisation of auxiliary modules</strong> — OCR and CLIP were
+              incorporated as supporting modules and were not extensively tuned. The primary
+              focus was developing a stable YOLO-based ensemble framework.
+            </li>
+            <li>
+              <strong>Constrained effectiveness of CLIP under zero-shot settings</strong> — CLIP's
+              contribution under full-frame, zero-shot configuration was limited. In some cases
+              it overlapped with YOLO-World outputs or introduced additional false positives,
+              suggesting that region-level reasoning would be more effective.
+            </li>
+            <li>
+              <strong>Simplified false positive handling</strong> — false positives were mainly
+              controlled through ensemble filtering and confidence thresholds. More advanced
+              suppression strategies were not implemented.
+            </li>
+            <li>
+              <strong>No temporal modelling</strong> — the pipeline operates at the frame level
+              and does not model temporal continuity. Exposure events are treated as independent
+              observations rather than coherent temporal segments.
+            </li>
+          </ul>
+          <p style="color:#666; font-size:0.88rem;">
+            These limitations do not undermine the feasibility of the proposed pipeline but
+            define clear boundaries for its current scope.
+          </p>
+        </section>
+
+        <!-- Future Work -->
+        <section class="post">
+          <header><h2>Future Work</h2></header>
+          <p>Several directions may further strengthen the pipeline:</p>
+          <ul class="future-list">
+            <li>
+              <strong>Optimisation of OCR and CLIP components</strong> — image-level preprocessing
+              (resolution adjustment, sharpness enhancement) and more systematic prompt engineering
+              could better exploit CLIP's semantic reasoning capabilities.
+            </li>
+            <li>
+              <strong>Advanced false positive suppression</strong> — confidence reweighting or
+              improved negative sample handling could further improve robustness under highly
+              imbalanced conditions.
+            </li>
+            <li>
+              <strong>Temporal modelling</strong> — temporal smoothing or sequence-based aggregation
+              could better capture exposure duration and persistence, improving interpretability
+              in video-based detection tasks.
+            </li>
+            <li>
+              <strong>Alternative detection architectures</strong> — comparing the YOLO-based
+              framework with grounding-based models (e.g., Grounding DINO) and evaluating
+              model compression techniques for large-scale deployment feasibility.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="post">
+          <header><h2>Conclusion</h2></header>
+          <p>
+            This project contributes a reproducible and scalable framework for brand exposure
+            analysis in real-world screen-recorded media. Rather than pursuing maximal detection
+            accuracy under controlled conditions, it prioritises robustness and applicability —
+            demonstrating that a pipeline can support large-scale exposure screening even without
+            frame-level ground truth annotations.
+          </p>
+          <p>
+            By integrating detection-based and semantic approaches in a conservative, interpretable
+            way, the work supports the broader goal of data-driven analysis of children's media
+            exposure at scale — and provides a foundation for future research in this space.
+          </p>
+          <ul class="actions special" style="margin-top:2rem;">
+            <li>
+              <a href="https://github.com/Any-KHY/Kids-Online-Brand-Exposure-Detection-Pipeline"
+                class="button" target="_blank" rel="noopener">View on GitHub</a>
+            </li>
+            <li><a href="Any_Kwok_Thesis.pdf" class="button" target="_blank" rel="noopener">Download Thesis</a></li>
+            <li><a href="index.html" class="button">Back to Portfolio</a></li>
+          </ul>
+        </section>
+
+      </div><!-- /main -->
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:anyknz@gmail.com">anyknz@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="https://www.linkedin.com/in/anykwok/" class="icon brands alt fa-linkedin"
+                  target="_blank" rel="noopener"><span class="label">LinkedIn</span></a>
+              </li>
+              <li>
+                <a href="https://github.com/Any-KHY" class="icon brands alt fa-github"
+                  target="_blank" rel="noopener"><span class="label">GitHub</span></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul><li>&copy; Any Kwok</li><li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li></ul>
+      </div>
+
+    </div><!-- /wrapper -->
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

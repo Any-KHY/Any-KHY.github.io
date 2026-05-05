@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8922a"/>
+      <stop offset="100%" stop-color="#a05a10"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0a830"/>
+      <stop offset="100%" stop-color="#b06818"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg-s)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="120" y1="60"  x2="700" y2="60"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="120" y1="140" x2="700" y2="140" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="120" y1="220" x2="700" y2="220" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="120" y1="300" x2="700" y2="300" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Y-axis -->
+  <line x1="120" y1="40" x2="120" y2="370" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <!-- X-axis -->
+  <line x1="120" y1="370" x2="720" y2="370" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+  <!-- Bars (rising) -->
+  <rect x="160" y="310" width="60" height="60"  fill="url(#bar1)" opacity="0.70" rx="3"/>
+  <rect x="250" y="265" width="60" height="105" fill="url(#bar1)" opacity="0.75" rx="3"/>
+  <rect x="340" y="220" width="60" height="150" fill="url(#bar2)" opacity="0.82" rx="3"/>
+  <rect x="430" y="170" width="60" height="200" fill="url(#bar2)" opacity="0.88" rx="3"/>
+  <rect x="520" y="120" width="60" height="250" fill="url(#bar2)" opacity="0.94" rx="3"/>
+  <rect x="610" y="70"  width="60" height="300" fill="url(#bar2)" rx="3"/>
+
+  <!-- Trend line -->
+  <polyline
+    points="190,310 280,262 370,217 460,167 550,117 640,67"
+    fill="none" stroke="#ffd580" stroke-width="2.5"
+    stroke-dasharray="7,4" opacity="0.55"/>
+
+  <!-- Trend dots -->
+  <circle cx="190" cy="310" r="4" fill="#ffd580" opacity="0.7"/>
+  <circle cx="280" cy="262" r="4" fill="#ffd580" opacity="0.7"/>
+  <circle cx="370" cy="217" r="4" fill="#ffd580" opacity="0.7"/>
+  <circle cx="460" cy="167" r="4" fill="#ffd580" opacity="0.7"/>
+  <circle cx="550" cy="117" r="4" fill="#ffd580" opacity="0.7"/>
+  <circle cx="640" cy="67"  r="4" fill="#ffd580" opacity="0.7"/>
+
+  <!-- Label -->
+  <text x="400" y="418" text-anchor="middle"
+    fill="rgba(255,255,255,0.35)"
+    font-family="'Source Sans Pro', Arial, sans-serif"
+    font-size="13" letter-spacing="5" font-weight="600">
+    MySQL · POWER BI · EXCEL
+  </text>
+</svg>

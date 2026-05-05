@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Any Kwok — Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+      html { scroll-behavior: smooth; }
+      /* Skill category headings — dark on white section bg */
+      .skill-category h3 {
+        font-size: 1em;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        color: #222 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      #skills .row { align-items: flex-start; }
+      /* Uniform button size in project cards */
+      .posts article .actions.special .button {
+        min-width: 110px;
+        text-align: center;
+      }
+      /* Featured project buttons same size */
+      #projects.post.featured .actions.special .button {
+        min-width: 140px;
+        text-align: center;
+      }
+      /* Chatbot chip text — force visible on dark bg */
+      .chip { color: #ddd !important; background: #3a3a3a !important; }
+      /* Footer contact icons — white on dark */
+      #contact .icon { color: #fff !important; border-color: rgba(255,255,255,0.4) !important; }
+      #contact .icon:hover { background: #d35400 !important; border-color: #d35400 !important; }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper" class="fade-in">
+
+      <!-- Intro -->
+      <div id="intro">
+        <h1>Any Kwok</h1>
+        <p>
+          Business &amp; Data Analyst · Auckland, New Zealand<br />
+          Master of Business Data Science graduate<br />
+          with a background in computer science, accounting, and cross-border operations.
+        </p>
+        <ul class="icons">
+          <li>
+            <a href="https://www.linkedin.com/in/anykwok/" class="icon brands fa-linkedin" target="_blank" rel="noopener">
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Any-KHY" class="icon brands fa-github" target="_blank" rel="noopener">
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:anyknz@gmail.com" class="icon solid fa-envelope">
+              <span class="label">Email</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="actions">
+          <li>
+            <a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Any's Portfolio</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="#about" class="scrolly">About</a></li>
+          <li><a href="#skills" class="scrolly">Skills</a></li>
+          <li><a href="#projects" class="scrolly">Projects</a></li>
+          <li><a href="#contact" class="scrolly">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Featured Project -->
+        <article id="projects" class="post featured">
+          <header class="major">
+            <span class="date">Master's Thesis · 2025–2026</span>
+            <h2><a href="kids-online.html">Kids Online Brand Exposure Detection Pipeline</a></h2>
+            <p>
+              An end-to-end video analysis pipeline that transforms raw screen-recorded data
+              into structured brand exposure results — combining YOLO-based detection, OCR,
+              and CLIP zero-shot semantic validation to process 700,000+ frames at scale.
+            </p>
+          </header>
+          <a href="kids-online.html" class="image main">
+            <img src="images/kids-online-cover.jpg" alt="Kids Online project cover" />
+          </a>
+          <ul class="actions special">
+            <li><a href="kids-online.html" class="button large">View Project</a></li>
+            <li>
+              <a href="https://github.com/Any-KHY/Kids-Online-Brand-Exposure-Detection-Pipeline"
+                class="button large" target="_blank" rel="noopener">View on GitHub</a>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Projects Grid -->
+        <section class="posts">
+
+          <article>
+            <header>
+              <span class="date">Business Analytics</span>
+              <h2><a href="sales-pricing.html">Sales Performance &amp;<br />Pricing Analysis</a></h2>
+            </header>
+            <a href="sales-pricing.html" class="image fit">
+              <img src="images/cover-sales.svg" alt="Sales and Pricing Analysis" />
+            </a>
+            <p>
+              End-to-end MySQL and Power BI workflow analysing product performance, pricing
+              effectiveness, and profitability — delivered as an interactive dashboard for
+              business stakeholders.
+            </p>
+            <ul class="actions special">
+              <li><a href="sales-pricing.html" class="button">Full Story</a></li>
+              <li><a href="https://github.com/Any-KHY/Sales-Performance-Dashboard-with-Pricing-Insights-SQL-Power-BI-" class="button" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+          </article>
+
+          <article>
+            <header>
+              <span class="date">Machine Learning</span>
+              <h2><a href="parkinson.html">Parkinson's Diagnosis<br />via Voice Analysis</a></h2>
+            </header>
+            <a href="parkinson.html" class="image fit">
+              <img src="images/cover-parkinson.svg" alt="Parkinson's Voice Analysis" />
+            </a>
+            <p>
+              Multi-classifier ML analysis (KNN, Random Forest, SVM) across six voice feature
+              schemes to support Parkinson's disease diagnosis — with PCA, t-SNE, and SOM
+              visualisations. Built in Julia.
+            </p>
+            <ul class="actions special">
+              <li><a href="parkinson.html" class="button">Full Story</a></li>
+              <li><a href="https://github.com/Any-KHY/Parkinson-s-Diagnosis-Using-Voice-Signal-Analysis" class="button" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+          </article>
+
+          <article>
+            <header>
+              <span class="date">Database Design</span>
+              <h2><a href="mongodb-spotify.html">MongoDB Scalable<br />Song Database</a></h2>
+            </header>
+            <a href="mongodb-spotify.html" class="image fit">
+              <img src="images/cover-mongodb.svg" alt="MongoDB Song Database" />
+            </a>
+            <p>
+              Designed and built a scalable NoSQL database in MongoDB using a 498,000-track
+              Spotify dataset — covering document modelling, indexing strategy, and query
+              design for a music player application.
+            </p>
+            <ul class="actions special">
+              <li><a href="mongodb-spotify.html" class="button">Full Story</a></li>
+            </ul>
+          </article>
+
+        </section>
+
+        <!-- About Me -->
+        <section id="about" class="post">
+          <header class="major">
+            <h2>About Me</h2>
+          </header>
+          <p>
+            I am an analytical, detail-oriented professional based in Massey, Auckland.
+            My work focuses on data analysis and business analysis — building data pipelines,
+            writing SQL, and translating complex findings into clear outputs that support
+            real business decisions.
+          </p>
+          <p>
+            I recently completed a Master of Business Data Science with Distinction at the
+            University of Otago. My thesis involved designing and evaluating a semi-automated
+            brand-exposure detection pipeline, integrating computer vision and machine learning
+            at scale. Before returning to study, I spent over ten years in cross-border
+            accounting and operations roles across Hong Kong, Japan, and New Zealand.
+          </p>
+          <p>
+            I speak Cantonese (native), Mandarin (fluent), and Japanese (JLPT Level 1), and
+            am comfortable working in multicultural and regulated business environments.
+          </p>
+
+          <h3 style="margin-top:1.5rem;">Education</h3>
+          <ul>
+            <li>Master of Business Data Science (Distinction) — University of Otago, 2025–2026</li>
+            <li>BSc in Computer Science (minor: Game Programming) — Massey University, 2022–2024</li>
+            <li>Higher Diploma in Contemporary Japanese — CUHKSCS, 2008–2010</li>
+          </ul>
+
+          <h3 style="margin-top:1.2rem;">Certifications</h3>
+          <ul>
+            <li>LCCI Level II — Bookkeeping &amp; Accounts</li>
+            <li>Xero L1 Associate &amp; L2 Professional</li>
+            <li>Japanese Language Proficiency Test — Level 1</li>
+          </ul>
+
+          <ul class="actions" style="margin-top:2rem;">
+            <li>
+              <a href="Any_KWOK_CV.pdf" class="button primary icon solid fa-download" download>
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="post">
+          <header class="major">
+            <h2>Skills</h2>
+          </header>
+          <div class="row">
+            <div class="col-6 col-12-medium">
+
+              <div class="skill-category">
+                <h3>Data &amp; Reporting</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">Python (Pandas, OpenCV)</span>
+                  <span class="skill-tag">SQL / MySQL</span>
+                  <span class="skill-tag">MongoDB / NoSQL</span>
+                  <span class="skill-tag">Power BI &amp; DAX</span>
+                  <span class="skill-tag">Excel (advanced)</span>
+                  <span class="skill-tag">Data visualisation</span>
+                </div>
+              </div>
+
+              <div class="skill-category" style="margin-top:1.2rem;">
+                <h3>Computer Vision &amp; ML</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">YOLOv11 &amp; YOLO-World</span>
+                  <span class="skill-tag">OCR (EasyOCR)</span>
+                  <span class="skill-tag">CLIP — zero-shot</span>
+                  <span class="skill-tag">Pipeline design</span>
+                  <span class="skill-tag">Julia (ML &amp; analysis)</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-6 col-12-medium">
+
+              <div class="skill-category">
+                <h3>Business Analysis</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">Process mapping</span>
+                  <span class="skill-tag">Gap analysis</span>
+                  <span class="skill-tag">Feasibility &amp; cost-benefit studies</span>
+                  <span class="skill-tag">Requirements gathering</span>
+                  <span class="skill-tag">Stakeholder communication</span>
+                </div>
+              </div>
+
+              <div class="skill-category" style="margin-top:1.2rem;">
+                <h3>Accounting Systems</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">Xero (L1 &amp; L2)</span>
+                  <span class="skill-tag">MYOB</span>
+                  <span class="skill-tag">ABSS</span>
+                </div>
+              </div>
+
+              <div class="skill-category" style="margin-top:1.2rem;">
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">Cantonese — native</span>
+                  <span class="skill-tag">Mandarin — fluent</span>
+                  <span class="skill-tag">Japanese — JLPT Level 1</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /main -->
+
+      <!-- Footer / Contact -->
+      <footer id="contact" style="display:block; text-align:center; padding:2rem;">
+        <ul class="icons" style="display:flex; justify-content:center; gap:0.6rem; list-style:none; padding:0; margin:0;">
+          <li>
+            <a href="https://www.linkedin.com/in/anykwok/" class="icon brands fa-linkedin" target="_blank" rel="noopener" style="color:#fff; border-color:#555;">
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Any-KHY" class="icon brands fa-github" target="_blank" rel="noopener" style="color:#fff; border-color:#555;">
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:anyknz@gmail.com" class="icon solid fa-envelope" style="color:#fff; border-color:#555;">
+              <span class="label">Email</span>
+            </a>
+          </li>
+        </ul>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>&copy; Any Kwok</li>
+          <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a> (Massively)</li>
+        </ul>
+      </div>
+
+    </div><!-- /wrapper -->
+
+    <!-- Floating Chatbot Widget -->
+    <div id="chatbot-widget">
+      <button id="chatbot-toggle" aria-label="Chat with Any-Bot">
+        <i class="fas fa-comment-dots" id="chat-icon-open"></i>
+        <i class="fas fa-times" id="chat-icon-close" style="display:none;"></i>
+      </button>
+      <div id="chatbot-panel" role="dialog" aria-label="Any-Bot">
+        <div class="chat-header">
+          <span class="chat-dot"></span>
+          <span class="chat-title">Any-Bot</span>
+          <span class="chat-subtitle">Online</span>
+        </div>
+        <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+        <div class="chat-suggestions" id="chatSuggestions" style="display:none"></div>
+        <div class="chat-input">
+          <input type="text" id="chatInput" placeholder="Ask me anything..." aria-label="Your question" />
+          <button type="button" id="chatSend" aria-label="Send"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+    (function () {
+      'use strict';
+
+      var WELCOME = "Hi! I'm Any. Tap a button below or type your own question to get started!";
+
+      var toggle = document.getElementById('chatbot-toggle');
+      var panel  = document.getElementById('chatbot-panel');
+      var iconO  = document.getElementById('chat-icon-open');
+      var iconC  = document.getElementById('chat-icon-close');
+      var msgs   = document.getElementById('chatMessages');
+      var input  = document.getElementById('chatInput');
+      var chips  = document.getElementById('chatSuggestions');
+      var sendBtn = document.getElementById('chatSend');
+      var isOpen = false;
+
+      toggle.addEventListener('click', function () {
+        isOpen = !isOpen;
+        panel.classList.toggle('open', isOpen);
+        iconO.style.display = isOpen ? 'none' : 'inline-block';
+        iconC.style.display = isOpen ? 'inline-block' : 'none';
+        if (isOpen && msgs.children.length === 0) addBot(WELCOME);
+      });
+
+      chips.addEventListener('click', function (e) {
+        var btn = e.target.closest('.chip');
+        if (btn) handleQ(btn.getAttribute('data-q'));
+      });
+
+      function sendMsg() {
+        var q = input.value.trim();
+        if (!q) return;
+        input.value = '';
+        handleQ(q);
+      }
+      sendBtn.addEventListener('click', sendMsg);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); sendMsg(); }
+      });
+
+      function addMsg(text, who) {
+        var row = document.createElement('div');
+        row.className = 'chat-msg chat-msg-' + who;
+        var bub = document.createElement('div');
+        bub.className = 'chat-bubble';
+        bub.innerHTML = text;
+        row.appendChild(bub);
+        msgs.appendChild(row);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+
+      function addBot(text) { addMsg(text, 'bot'); }
+      function addUser(text) { addMsg(text, 'user'); }
+
+      function typing(cb) {
+        var row = document.createElement('div');
+        row.className = 'chat-msg chat-msg-bot chat-typing';
+        row.innerHTML = '<div class="chat-bubble"><span class="dot-typ"></span><span class="dot-typ"></span><span class="dot-typ"></span></div>';
+        msgs.appendChild(row);
+        msgs.scrollTop = msgs.scrollHeight;
+        setTimeout(function () { msgs.removeChild(row); cb(); }, 700);
+      }
+
+      function handleQ(q) {
+        addUser(q);
+        typing(function () { addBot(answer(q)); });
+      }
+
+      var KB = [
+        /* ── Greetings ── */
+        { kw: ['hi','hello','hey','kia ora','good morning','good afternoon'],
+          r: ["Hi there! I'm Any. Feel free to ask me anything about my background, skills, projects, or experience.",
+              "Hey! I'm Any Kwok. Ask me anything — projects, experience, skills, or how to get in touch.",
+              "Kia ora! I'm Any. Happy to answer any questions about my background or work."] },
+
+        /* ── Identity / About ── */
+        { kw: ['who are you','your name','introduce yourself','tell me about yourself','about me','yourself'],
+          r: ["I'm Any Kwok — an Auckland-based Business and Data Analyst. I recently completed a Master of Business Data Science with Distinction at the University of Otago, and I have a professional background spanning Computer Science, accounting, and over ten years of industry experience.",
+              "I'm Any Kwok — a Business and Data Analyst based in Auckland. My background combines Computer Science, accounting, and over a decade of professional experience across different industries.",
+              "I'm Any Kwok — an Auckland-based analyst with a Master of Business Data Science (Distinction) from Otago, and a professional background in Computer Science and accounting."] },
+
+        /* ── Location ── */
+        { kw: ['where','location','based','auckland','new zealand','massey'],
+          r: ["I'm based in Massey, Auckland, New Zealand."] },
+
+        /* ── Education ── */
+        { kw: ['education','degree','university','qualification','academic','study background'],
+          r: ["I hold a Master of Business Data Science (Distinction) from the University of Otago (2025–2026), a BSc in Computer Science from Massey University (2022–2024), and a Higher Diploma in Contemporary Japanese from CUHKSCS (2008–2010)."] },
+
+        /* ── Thesis ── */
+        { kw: ['thesis','dissertation','master thesis','kids online','brand exposure','pipeline','700'],
+          r: ["My thesis is titled 'A Semi-Automated Pipeline for Fast-Food Brand Exposure Detection in Kids' Screen-Recorded Media'. I designed and built a multi-model computer vision pipeline integrating YOLOv11, YOLO-World, OCR, and CLIP to process over 700,000 video frames, producing structured brand exposure data for research use."] },
+
+        /* ── Most meaningful experience (5 scenarios, random) ── */
+        { kw: ['meaningful','memorable','highlight','most proud','best project','significant experience'],
+          r: [
+            "The most meaningful experience was designing and building the full pipeline for my thesis. It was my first time applying technical skills at real scale in a live research context — integrating four different models, handling hundreds of thousands of frames, and producing outputs that would directly feed into a research study. It required both engineering judgment and the ability to adapt when things did not go to plan.",
+            "A memorable experience was during my undergrad group project where we had to build a game as a team of four. Midway through, one member went completely off the radar. Rather than panic, we discussed the situation and made a clear contingency plan — we would cover his part if he did not return by the deadline. He did come back in time and we submitted on schedule, but that experience taught me the real value of planning for uncertainty in a team.",
+            "One experience that stuck with me was starting a CS part-time role where most customers had very strong accents I initially struggled to follow. I decided to get myself deeply familiar with the products so I had enough context to piece together what customers were asking, even when I could not catch every word. A simple fix, but it made a real difference.",
+            "At my CS part-time job, I once missed a sale price notice — we had been changing desks a lot and I missed a printed update. A customer was charged incorrectly and was understandably upset. I apologised, investigated what happened, escalated to my team leader, got the price corrected, and worked with the sales team to make it right. We ended the interaction on good terms and I reported the full incident to our regional GM.",
+            "At SBI, I inherited a month-end reporting process where every figure had to be manually entered into Excel one by one — it was taking five to ten working days just to close the books. I built an Excel template that pulled from system exports automatically, cutting that down to two to five days. It was the first time I turned a painful manual process into something streamlined, and it reinforced my belief in looking critically at how things are done."
+          ] },
+
+        /* ── Key learning (5 scenarios, random) ── */
+        { kw: ['key learning','lesson','what did you learn','learned from','takeaway'],
+          r: [
+            "The biggest lesson from my thesis was that real projects never go exactly to plan. My original scope covered three years of data, but hardware limitations made that unworkable. I adapted by moving to cloud compute and narrowing the dataset scope while keeping the research question intact. Personally, I learned to seek input earlier rather than trying to resolve everything independently first.",
+            "From the group project experience, I learned that the best thing you can do in uncertain situations is communicate early and make a clear contingency plan. Waiting and hoping things resolve themselves only adds pressure. Having a backup plan meant we could stay calm and focused regardless of what happened.",
+            "From my CS part-time experience, I learned that domain knowledge is one of the best ways to bridge a communication gap. When you understand the context well enough, you can follow a conversation even when the words are not entirely clear. Asking for help when truly stuck is never a weakness — it is just good judgment.",
+            "The customer complaint situation taught me to take ownership, stay calm, and follow a proper escalation process. Even when a mistake was partly circumstantial, how you respond matters more than what went wrong. Keeping the customer informed at each step made the difference between a lost relationship and a resolved one.",
+            "At SBI, I learned that process improvement does not have to be complex. A well-structured Excel template solved a problem that had been accepted as just the way things are. It reinforced my belief in looking critically at repetitive tasks and asking whether there is a smarter way."
+          ] },
+
+        /* ── Challenge (5 scenarios, random) ── */
+        { kw: ['challenge','obstacle','difficulty','hard','struggled','problem you faced'],
+          r: [
+            "The main challenge in my thesis was a hardware limitation that made my original three-year dataset scope unworkable. I had to adapt quickly — I moved to cloud compute and narrowed the scope while preserving the integrity of the research. It was stressful, but it taught me to scope pragmatically and to ask for help earlier.",
+            "During my undergrad game project, one of our four team members went completely silent partway through. We tried reaching him for several days with no response. The three of us sat down, agreed on a contingency plan, and divided his workload between us in case he did not return. He came back just in time and we submitted on schedule — but having that plan in place meant we stayed productive rather than anxious.",
+            "In my CS part-time job, I found it difficult at first to follow customers with very heavy accents. Rather than constantly asking them to repeat themselves, I made an effort to get familiar with the product range so I could piece together what they were likely asking. That, combined with knowing when to ask a colleague for help, got me through it.",
+            "At my CS part-time job, I once missed a sale price notice because we had been rotating desks and I did not see the printed update. A customer was charged incorrectly and became very upset. I apologised, worked out what had gone wrong, escalated to my team leader, corrected the price, coordinated with the sales team on how to make it right, and reported the full incident to our regional GM. The customer left satisfied and the relationship was repaired.",
+            "When I joined SBI, the month-end reporting process involved manually inputting every voucher into Excel — a process that regularly took five to ten working days. As a newcomer, keeping up with that while learning the company was tough. I built an Excel template that automated the population of HQ reports from system exports, bringing the process down to two to five days."
+          ] },
+
+        /* ── Work experience ── */
+        { kw: ['work experience','work history','previous job','employment','career','worked','companies'],
+          r: ["Before returning to study, I worked in accounting and operations roles mainly at Japanese firms in Hong Kong. My work covered full-cycle accounting, payroll, financial reporting, and cross-border operations."] },
+
+        /* ── Achievement outside studies ── */
+        { kw: ['achievement','biggest achievement','proud of','proudest','work achievement','achievement outside','non-study','beyond study','accomplishment','ajis','accounting department'],
+          r: ["My most significant achievement outside of studies was building the accounting department from scratch at AJIS in Hong Kong. When I joined, there was no structured accounting function. I introduced MYOB, designed all the internal processes, and got it running end-to-end. It was also a personal milestone — it marked my transition from a translation and administrative role into accounting."] },
+
+        /* ── Why BA / DA ── */
+        /* ── Why this career / role (BA, DA, IT job) ── */
+        { kw: ['why ba','why da','why business analyst','why data analyst','why this role','why analyst','be a ba','be a da','be an analyst','want to be','want ba','want da','why ai','why data','why tech','why it','motivation','passion','drawn','why career','why this field','interested in data','interested in tech','interested in it','why choose','choose this','data career','tech career','why it job','it job','it role'],
+          r: [
+            "I have a combination that is relatively uncommon — technical skills in Python, SQL, and machine learning, alongside over ten years of business experience. BA and DA roles let me bring both together. I'm good at moving between the technical detail and the business context, which is where I think I can add the most value. I also believe data and IT skills are now essential across every field — AI is already built into tools like Excel and web browsers, and I wanted to be someone who can actually use them well.",
+            "BA and DA roles suit me because I can sit comfortably on both sides — I understand the technical work and I understand the business context. I've spent over a decade in professional roles and also built real technical projects. I believe data skills are now relevant in every industry, and I want to be someone who bridges that gap.",
+            "My thesis gave me direct experience applying AI to a real research problem — that made the technology feel concrete rather than abstract. I see AI as a practical tool. What interests me is how it can be used responsibly to solve real problems, whether in business analysis, reporting, or operations.",
+            "Working on my thesis showed me what it looks like to apply AI at real scale. It stopped being abstract and became something I could actually build with. I want to keep working at that intersection — where technical tools meet real business problems."
+          ] },
+
+        /* ── Why go back to study IT ── */
+        { kw: ['why study','study it','go back to study','return to study','why information technology','why cs','why computer science','why did you study','change career','career change','switch to it','switch career'],
+          r: [
+            "I believe AI and tech tools are becoming unavoidable in every field — not just in tech companies. Even everyday tools like Excel and web browsers now have AI built in. I wanted to be someone who actually understands and can use these tools well, not just watch the trend happen.",
+            "I made a deliberate decision to go back to study because I could see that data and technology skills were becoming essential across all industries, including accounting and operations. I did not want to be left behind — I wanted to be the person who bridges the technical and the business side."
+          ] },
+
+        /* ── Strengths ── */
+        { kw: ['strength','good at','best at','advantage','what are you good'],
+          r: [
+            "I'm a quick learner who actively keeps myself up to date — whether it's new tools, industry trends, or methods. I also make a point of applying what I learn to actual work, not just theory. That habit has helped me adapt across very different industries and roles throughout my career.",
+            "My key strengths are being a quick learner, staying current with new tools and skills, and being willing to apply what I learn practically. I've worked across accounting, operations, and data science — each time picking up new skills quickly and putting them to use."
+          ] },
+
+        /* ── Weakness / growth ── */
+        { kw: ['weakness','area to improve','growth','development','working on'],
+          r: ["My main area for growth is local New Zealand work experience. I hold Xero L1 and L2 certifications, but I haven't yet applied them in a real NZ workplace. I'm actively compensating through projects, self-directed learning, and targeting roles where my technical and analytical background can contribute from day one while I build that local context."] },
+
+        /* ── Why NZ ── */
+        { kw: ['why nz','why new zealand','stay','settle','new zealand job'],
+          r: ["I've completed my studies here, I have work authorisation, and I'm genuinely settled in New Zealand. I want to build my career here long-term. I appreciate the working culture and the opportunity to work across a range of industries."] },
+
+        /* ── Languages ── */
+        { kw: ['language','cantonese','mandarin','japanese','multilingual','speak','chinese'],
+          r: ["I'm a native Cantonese speaker, fluent in Mandarin, and hold a JLPT Level 1 in Japanese. I'm comfortable working in English in professional settings and have extensive experience working across multilingual, multicultural teams."] },
+
+        /* ── Projects overview ── */
+        { kw: ['project','portfolio','what have you built','show me your work'],
+          r: ["I have four projects: (1) Kids Online — master's thesis, multi-model CV pipeline for brand exposure detection; (2) Sales Performance Dashboard — MySQL and Power BI end-to-end analytics; (3) Parkinson's Diagnosis — ML classifier comparison in Julia; (4) MongoDB Spotify Database — scalable NoSQL design. You can explore each in the Projects section."] },
+
+        /* ── Sales / Power BI project ── */
+        { kw: ['sales','pricing','dashboard','power bi project','mysql project'],
+          r: ["My sales and pricing project was an end-to-end workflow: importing multi-year CSV data into MySQL, cleaning and modelling it, building KPI queries for revenue, margin, and pricing trends, and delivering an interactive Power BI dashboard for stakeholders to explore without needing to write queries."] },
+
+        /* ── Accounting ── */
+        { kw: ['accounting','bookkeeping','finance','xero','myob','lcci','payroll','gst'],
+          r: ["I have over ten years of professional accounting experience covering bookkeeping, payroll, GST and VAT filing, and financial reporting. I hold an LCCI Level II qualification and am Xero-certified at both L1 Associate and L2 Professional levels."] },
+
+        /* ── Business analysis ── */
+        { kw: ['business analysis','ba skills','requirements','stakeholder','process map','gap analysis'],
+          r: ["My BA skills include process mapping, gap analysis, requirements gathering, feasibility and cost-benefit studies, and stakeholder communication — developed through both academic study and professional roles spanning multiple industries and countries."] },
+
+        /* ── Python / SQL / Power BI ── */
+        { kw: ['python','sql','power bi','dax','excel','mysql','pandas','data tools','technical tools','what tools','what software','reporting tools'],
+          r: ["I use Python with Pandas and OpenCV for data processing, SQL and MySQL for querying and modelling, Power BI and DAX for interactive dashboards, and advanced Excel for analysis and reporting."] },
+
+        /* ── CV / ML ── */
+        { kw: ['machine learning','ml','yolo','computer vision','clip','ocr','deep learning','ai model','ai tools','ai experience','object detection','video analysis','frame'],
+          r: ["I have hands-on experience with YOLOv11, YOLO-World, EasyOCR, and CLIP. My thesis involved building and evaluating a multi-model ensemble for brand detection across 700,000+ frames under real-world noisy conditions."] },
+
+        /* ── MongoDB ── */
+        { kw: ['mongodb','nosql','database','pymongo','document model','spotify','song','music','nosql experience','database design'],
+          r: ["For my INFO408 paper at Otago, I designed and built a scalable MongoDB database using a 498,000-track Spotify dataset. I covered document modelling, indexing strategy, and query design for a music player use case."] },
+
+        /* ── Parkinson's / Julia ── */
+        { kw: ['julia','parkinson','voice','voice signal','classification','knn','random forest','svm','medical','disease','diagnosis','health'],
+          r: ["In a group project for INFO411, I used Julia to compare KNN, Random Forest, and SVM classifiers across six voice feature schemes for Parkinson's disease diagnosis. We applied nested cross-validation, PCA, t-SNE, and SOM to ensure rigorous results."] },
+
+        /* ── Contact ── */
+        { kw: ['contact','email','reach','get in touch','hire','apply','connect'],
+          r: ["You can reach me by email at anyknz@gmail.com or connect on LinkedIn at linkedin.com/in/anykwok."] },
+
+        /* ── CV download ── */
+        { kw: ['cv','resume','download','curriculum'],
+          r: ["You can download my CV <a href='Any_KWOK_CV.pdf' target='_blank' style='color:#f0c040;'>here</a>."] },
+
+        /* ── Hobbies / interests ── */
+        { kw: ['hobby','hobbies','free time','outside work','personal','fun','what do you do for fun','outside of work'],
+          r: ["Outside of work and study, I enjoy travelling, swimming, and reading."] },
+
+        /* ── Availability ── */
+        { kw: ['available','availability','start','when can you','looking for','job hunting','open to'],
+          r: ["I'm currently available and actively looking for opportunities. Feel free to get in touch at anyknz@gmail.com to discuss further."] },
+
+        /* ── Salary / Visa ── */
+        { kw: ['salary','pay','compensation','wage','visa','work permit','right to work'],
+          r: ["That's something I'd prefer to discuss directly — feel free to reach out at anyknz@gmail.com."] },
+
+        /* ── Teamwork ── */
+        { kw: ['team','collaboration','group','teamwork','work with others'],
+          r: ["I enjoy collaborative work. In my INFO411 group project, I coordinated the analytical pipeline and cross-validated results with teammates. My professional background also required constant cross-functional collaboration across time zones and languages."] },
+
+        /* ── Thanks / sign-off ── */
+        { kw: ['thank','thanks','cheers','appreciate','helpful'],
+          r: ["Thank you! Feel free to ask anything else, or reach out directly at anyknz@gmail.com."] },
+        { kw: ['bye','goodbye','see you','cya','take care'],
+          r: ["Thanks for stopping by! Feel free to get in touch at anyknz@gmail.com any time."] }
+      ];
+
+      var FALLBACK = "I'm probably not the best chatbot for that — but I'm great at answering questions about my work and projects!";
+
+      function answer(q) {
+        var low = q.toLowerCase();
+        var best = null, bestScore = 0;
+        for (var i = 0; i < KB.length; i++) {
+          var score = 0;
+          for (var j = 0; j < KB[i].kw.length; j++) {
+            var kw = KB[i].kw[j];
+            var matched = false;
+            if (kw.split(' ').length === 1 && kw.length <= 4) {
+              matched = new RegExp('\\b' + kw + '\\b').test(low);
+            } else {
+              matched = low.indexOf(kw) !== -1;
+            }
+            if (matched) score += kw.split(' ').length > 1 ? 2 : 1;
+          }
+          if (score > bestScore) { bestScore = score; best = KB[i]; }
+        }
+        if (bestScore > 0) {
+          var responses = best.r;
+          return responses[Math.floor(Math.random() * responses.length)];
+        }
+        return FALLBACK;
+      }
+
+    }());
+    </script>
+  </body>
+</html>

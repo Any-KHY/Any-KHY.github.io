@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Parkinson's Diagnosis via Voice Analysis — Any Kwok</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+      .actions .button { min-width: 160px; text-align: center; }
+
+      /* ── Remove decorative lines through date text ── */
+      header.major > .date::before,
+      header.major > .date::after {
+        display: none !important;
+      }
+
+      /* ── Stat cards ── */
+      .stat-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.8rem 0 2rem;
+      }
+      .stat-card {
+        flex: 1 1 120px;
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-top: 3px solid #d35400;
+        border-radius: 6px;
+        padding: 1rem 1.1rem 0.9rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      }
+      .stat-num {
+        display: block;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #d35400;
+        line-height: 1.1;
+      }
+      .stat-label {
+        display: block;
+        font-size: 0.78rem;
+        color: #666;
+        margin-top: 0.3rem;
+        letter-spacing: 0.03em;
+      }
+
+      /* ── Pipeline steps ── */
+      .pipeline {
+        list-style: none;
+        padding: 0;
+        margin: 1.2rem 0 2rem;
+        counter-reset: pipe;
+      }
+      .pipeline li {
+        display: flex;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.6rem;
+        background: #fafafa;
+        border: 1px solid rgba(0,0,0,0.07);
+        border-left: 3px solid #d35400;
+        border-radius: 0 6px 6px 0;
+        counter-increment: pipe;
+        align-items: flex-start;
+      }
+      .pipe-num {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #d35400;
+        min-width: 1.5rem;
+        flex-shrink: 0;
+        line-height: 1.4;
+      }
+      .pipe-num::before { content: counter(pipe); }
+      .pipe-body strong {
+        display: block;
+        color: #222;
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+      }
+      .pipe-body span {
+        font-size: 0.82rem;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      /* ── Tech tags ── */
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0.8rem 0 1.6rem;
+      }
+      .tech-tag {
+        background: rgba(211,84,0,0.1);
+        border: 1px solid rgba(211,84,0,0.3);
+        color: #b34400;
+        padding: 0.22rem 0.7rem;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
+      }
+
+      /* ── Image captions ── */
+      .img-caption {
+        font-size: 0.8rem;
+        color: #777;
+        text-align: center;
+        margin-top: 0.4rem;
+        margin-bottom: 1.2rem;
+        font-style: italic;
+      }
+
+      /* ── Outcome highlight ── */
+      .outcome-block {
+        background: rgba(211,84,0,0.06);
+        border: 1px solid rgba(211,84,0,0.22);
+        border-left: 4px solid #d35400;
+        border-radius: 6px;
+        padding: 1.2rem 1.4rem;
+        margin: 1.4rem 0;
+      }
+      .outcome-block p {
+        margin: 0 0 0.6rem;
+        font-size: 0.92rem;
+        color: #333;
+        line-height: 1.6;
+      }
+      .outcome-block p:last-child { margin-bottom: 0; }
+
+      /* ── Contribution note ── */
+      .contrib-note {
+        background: #f5f5f5;
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 6px;
+        padding: 0.8rem 1.1rem;
+        font-size: 0.83rem;
+        color: #555;
+        margin: 1.2rem 0;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Any's Portfolio</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="parkinson.html">Parkinson's Analysis</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="https://www.linkedin.com/in/anykwok/" class="icon brands fa-linkedin" target="_blank" rel="noopener">
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Any-KHY" class="icon brands fa-github" target="_blank" rel="noopener">
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:anyknz@gmail.com" class="icon solid fa-envelope">
+              <span class="label">Email</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+
+        <!-- Project Hero -->
+        <article class="post featured">
+          <header class="major">
+            <span class="date">Machine Learning &nbsp;·&nbsp; Group Project &nbsp;·&nbsp; University of Otago</span>
+            <h1>Parkinson's Diagnosis<br />Using Voice Signal Analysis</h1>
+            <p>
+              A machine learning investigation exploring whether voice signal features can
+              support Parkinson's disease diagnosis — comparing classifiers across six feature
+              schemes, with dimensionality reduction, feature selection, and nested
+              cross-validation. Built in Julia.
+            </p>
+          </header>
+          <span class="image main">
+            <img src="images/cover-parkinson.svg" alt="Parkinson's voice analysis cover" />
+          </span>
+          <ul class="actions special">
+            <li>
+              <a href="https://github.com/Any-KHY/Parkinson-s-Diagnosis-Using-Voice-Signal-Analysis"
+                class="button" target="_blank" rel="noopener">View on GitHub</a>
+            </li>
+            <li><a href="index.html" class="button">Back to Portfolio</a></li>
+          </ul>
+        </article>
+
+        <!-- At a Glance -->
+        <section class="post">
+          <header class="major"><h2>At a Glance</h2></header>
+          <div class="stat-row">
+            <div class="stat-card">
+              <span class="stat-num">754</span>
+              <span class="stat-label">Acoustic features per entry</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">252</span>
+              <span class="stat-label">Participants (PD + HC)</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">6</span>
+              <span class="stat-label">Feature schemes compared</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">3</span>
+              <span class="stat-label">Classifiers evaluated</span>
+            </div>
+          </div>
+          <p>
+            This group project was completed as a school assignment at the University of Otago. Working in a team of three, we investigated
+            whether voice signal features — extracted from sustained phonation recordings —
+            could reliably support early Parkinson's disease diagnosis.
+          </p>
+          <div class="contrib-note">
+            <strong>My contributions:</strong> EDA &amp; discussion, PCA visualisation,
+            Random Forest classification, feature selection analysis, nested cross-validation
+            framework, gender-stratified exploration, and report writing.
+          </div>
+        </section>
+
+        <!-- Dataset Challenges -->
+        <section class="post">
+          <header><h2>Dataset Challenges</h2></header>
+          <p>
+            The dataset (Sakar et al., 2018) contains acoustic voice features from 188
+            Parkinson's patients and 64 healthy controls, with each subject providing three
+            recordings. Before any modelling, four key challenges shaped our approach:
+          </p>
+          <ul>
+            <li>
+              <strong>High dimensionality</strong> — 754 attributes per entry poses a serious
+              risk of overfitting with standard classifiers.
+            </li>
+            <li>
+              <strong>Class imbalance</strong> — roughly 3:1 PD-to-HC ratio means naive
+              accuracy metrics are misleading.
+            </li>
+            <li>
+              <strong>Repeated measures</strong> — three recordings per subject introduce
+              correlated samples that standard cross-validation does not handle correctly.
+            </li>
+            <li>
+              <strong>Feature redundancy</strong> — strong inter-scheme correlations
+              (e.g. Wavelet–MFCC at r ≈ 0.7, Baseline–Wavelet at r ≈ −0.85) confirm
+              many features carry overlapping information.
+            </li>
+          </ul>
+          <span class="image fit" style="margin-top:1.5rem;">
+            <img src="images/park-fig2-correlation.jpg" alt="Correlation heatmap of feature schemes" />
+          </span>
+          <p class="img-caption">Correlation heatmap across the six feature schemes — strong inter-scheme correlations confirm significant feature redundancy.</p>
+        </section>
+
+        <!-- Analysis Pipeline -->
+        <section class="post">
+          <header><h2>Analysis Pipeline</h2></header>
+          <ol class="pipeline">
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>EDA &amp; data cleaning</strong>
+                <span>Identify dimensionality, imbalance, and repeated-measure issues. Apply Z-score standardisation to normalise feature ranges across schemes.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Separability visualisation</strong>
+                <span>Apply PCA, t-SNE, and SOM to explore class structure across all six feature schemes before classification.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Classifier comparison</strong>
+                <span>Compare SVM, Random Forest, and KNN across all six schemes using subject-grouped 5-fold cross-validation to prevent data leakage from repeated measures.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Feature selection</strong>
+                <span>Apply RF feature importance and Pearson correlation filtering to reduce 754 features to ~330, removing redundancy while preserving predictive power.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Nested cross-validation</strong>
+                <span>Introduce a 5×5 nested CV framework with stratified class balancing — inner loop for hyperparameter tuning, outer loop for unbiased performance estimation.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pipe-num"></span>
+              <div class="pipe-body">
+                <strong>Gender-stratified analysis</strong>
+                <span>Train separate RF models for male and female subsets to explore whether diagnostic patterns differ by gender.</span>
+              </div>
+            </li>
+          </ol>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Julia</span>
+            <span class="tech-tag">Random Forest</span>
+            <span class="tech-tag">SVM</span>
+            <span class="tech-tag">KNN</span>
+            <span class="tech-tag">PCA</span>
+            <span class="tech-tag">t-SNE</span>
+            <span class="tech-tag">SOM</span>
+            <span class="tech-tag">Nested CV</span>
+            <span class="tech-tag">MFCC</span>
+            <span class="tech-tag">TQWT</span>
+            <span class="tech-tag">DecisionTree.jl</span>
+            <span class="tech-tag">MultivariateStats.jl</span>
+          </div>
+        </section>
+
+        <!-- Visualisation -->
+        <section class="post">
+          <header><h2>Feature Separability</h2></header>
+          <p>
+            PCA showed limited separation across most schemes after standardisation, though
+            MFCC and TQWT displayed slightly clearer boundaries. t-SNE revealed non-linear
+            local clusters, and SOM visualisations showed that MFCC produced the smoothest
+            topology. Overall, MFCC and TQWT exhibited the best PD–HC separability, while
+            TimeFrequency and VocalFold remained highly overlapped.
+          </p>
+          <span class="image fit">
+            <img src="images/park-fig3-summary.png" alt="PCA, t-SNE and SOM summary across feature schemes" />
+          </span>
+          <p class="img-caption">PCA, t-SNE, and SOM visualisations across all six feature schemes — TQWT and MFCC showed the clearest group structure.</p>
+        </section>
+
+        <!-- Classifier Comparison -->
+        <section class="post">
+          <header><h2>Classifier Comparison</h2></header>
+          <p>
+            Subject-grouped cross-validation ensured that all three recordings from the same
+            person stayed in the same fold, preventing leakage between training and evaluation
+            sets. Random Forest consistently outperformed KNN and SVM, with narrower
+            fold-to-fold variation. MFCC and TQWT schemes ranked highest across all classifiers.
+          </p>
+          <span class="image fit">
+            <img src="images/park-fig4-classifier.png" alt="Classifier performance across feature schemes" />
+          </span>
+          <p class="img-caption">Accuracy distributions across classifiers and feature schemes — Random Forest showed the most stable and accurate results on TQWT and MFCC.</p>
+        </section>
+
+        <!-- Nested CV -->
+        <section class="post">
+          <header><h2>Nested Cross-Validation</h2></header>
+          <p>
+            The initial feature selection had been performed on the full dataset, which risked
+            data leakage. A 5×5 nested CV framework was introduced to address this: the inner
+            loop handled hyperparameter tuning while the outer loop provided unbiased
+            performance estimates. Stratified class balancing was applied to handle the
+            imbalanced PD-to-HC ratio.
+          </p>
+          <span class="image fit">
+            <img src="images/park-fig7-nested-cv.png" alt="Feature scheme distribution under nested cross-validation" />
+          </span>
+          <p class="img-caption">Feature scheme selection patterns across nested folds — TQWT and MFCC consistently dominated both RF and KNN models.</p>
+        </section>
+
+        <!-- Key Findings -->
+        <section class="post">
+          <header><h2>Key Findings</h2></header>
+          <ul>
+            <li>
+              <strong>MFCC and TQWT</strong> features consistently showed the best
+              separability and classification performance across all methods — confirming
+              that frequency-domain and time–frequency features capture Parkinson's-related
+              voice patterns most effectively.
+            </li>
+            <li>
+              <strong>Random Forest</strong> was the strongest classifier overall, delivering
+              the most stable results across feature schemes and cross-validation folds.
+            </li>
+            <li>
+              <strong>Feature reduction from 754 to ~330</strong> (via RF importance and
+              Pearson correlation filtering at threshold 0.85) maintained model performance
+              while significantly reducing dimensionality.
+            </li>
+            <li>
+              <strong>Subject-grouped cross-validation</strong> produced notably more
+              conservative estimates than standard k-fold — confirming that ignoring repeated
+              measures inflates reported accuracy.
+            </li>
+            <li>
+              <strong>Class imbalance</strong> remains the main limiting factor, particularly
+              for female subsets where the PD-to-HC ratio was approximately 5:1.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Outcome -->
+        <section class="post">
+          <header><h2>Outcome</h2></header>
+          <div class="outcome-block">
+            <p>
+              Under the full nested cross-validation framework, Random Forest achieved strong
+              and stable discrimination between Parkinson's patients and healthy controls.
+              KNN performed consistently but lower across all metrics.
+            </p>
+            <p>
+              The project demonstrated that careful handling of repeated measures, class
+              imbalance, and data leakage is essential for producing reliable and reproducible
+              results in medical machine learning tasks.
+            </p>
+          </div>
+          <ul class="actions special" style="margin-top:2rem;">
+            <li>
+              <a href="https://github.com/Any-KHY/Parkinson-s-Diagnosis-Using-Voice-Signal-Analysis"
+                class="button" target="_blank" rel="noopener">View on GitHub</a>
+            </li>
+            <li><a href="index.html" class="button">Back to Portfolio</a></li>
+          </ul>
+        </section>
+
+      </div><!-- /main -->
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:anyknz@gmail.com">anyknz@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="https://www.linkedin.com/in/anykwok/" class="icon brands alt fa-linkedin"
+                  target="_blank" rel="noopener"><span class="label">LinkedIn</span></a>
+              </li>
+              <li>
+                <a href="https://github.com/Any-KHY" class="icon brands alt fa-github"
+                  target="_blank" rel="noopener"><span class="label">GitHub</span></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul><li>&copy; Any Kwok</li><li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li></ul>
+      </div>
+
+    </div><!-- /wrapper -->
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
