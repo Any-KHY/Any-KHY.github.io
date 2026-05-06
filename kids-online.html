@@ -234,15 +234,15 @@
             </div>
             <div class="stat-card">
               <span class="stat-num">4</span>
-              <span class="stat-label">Models in ensemble</span>
+              <span class="stat-label">Models in pipeline</span>
             </div>
             <div class="stat-card">
               <span class="stat-num">2 yrs</span>
               <span class="stat-label">Real-world data covered</span>
             </div>
             <div class="stat-card">
-              <span class="stat-num">E2E</span>
-              <span class="stat-label">Fully automated pipeline</span>
+              <span class="stat-num">Semi</span>
+              <span class="stat-label">Semi-automated pipeline</span>
             </div>
           </div>
           <p>
@@ -301,21 +301,21 @@
               <span class="pipe-num"></span>
               <div class="pipe-body">
                 <strong>CLIP semantic validation</strong>
-                <span>Use zero-shot image-text similarity to verify ambiguous detections — reducing false positives from visual noise.</span>
+                <span>Apply zero-shot image-text similarity against brand-related prompts. Originally intended to reduce false positives, CLIP in practice also helped recover borderline true positives that YOLO alone would have missed.</span>
               </div>
             </li>
             <li>
               <span class="pipe-num"></span>
               <div class="pipe-body">
-                <strong>Ensemble scoring and filtering</strong>
-                <span>Combine YOLO confidence, OCR signal, and CLIP score into a single detection decision with configurable thresholds.</span>
+                <strong>Multimodal score fusion</strong>
+                <span>The YOLO ensemble score is combined with OCR text signals and CLIP semantic bonuses into an aggregated score. A final exposure decision is made only when this score exceeds the predefined threshold.</span>
               </div>
             </li>
             <li>
               <span class="pipe-num"></span>
               <div class="pipe-body">
-                <strong>Exposure aggregation</strong>
-                <span>Group frame-level detections into structured brand exposure events with duration and frequency metrics.</span>
+                <strong>Exposure aggregation &amp; structured output</strong>
+                <span>Frame-level detections are grouped into exposure events (detections of the same brand within a 2-second window are merged). Results are exported as CSV/XLSX files per recording, each containing brand name, start and end frame, exposure duration, and event frequency — ready for downstream research analysis.</span>
               </div>
             </li>
           </ol>
@@ -356,8 +356,10 @@
         <section class="post">
           <header><h2>Ensemble Tuning</h2></header>
           <p>
-            Multiple combinations of YOLO, OCR, and CLIP ensemble weights were tested to find
-            the configuration that best balanced detection accuracy against false positive rate.
+            Multiple combinations of YOLOv11 and YOLO-World ensemble weights and confidence
+            thresholds were tested to find the configuration that best balanced detection accuracy
+            against false positive rate. The final configuration adopted a 0.6:0.4 weight ratio
+            at a confidence threshold of 0.50.
           </p>
           <div class="row">
             <div class="col-6 col-12-medium">
@@ -392,12 +394,61 @@
             <li><strong>YOLOv11</strong> — high precision on known brand logos at pixel level.</li>
             <li><strong>YOLO-World</strong> — a second fine-tuned detection model that complements YOLOv11 and improves coverage across different visual conditions.</li>
             <li><strong>EasyOCR</strong> — catches brand names visible as on-screen text.</li>
-            <li><strong>CLIP</strong> — semantic validation to resolve ambiguous or conflicting signals.</li>
+            <li><strong>CLIP</strong> — zero-shot semantic matching against brand prompts; intended to filter false positives, but in practice also recovered borderline true positives where YOLO detection was marginal.</li>
           </ul>
           <p>
             No single model reliably handles all the visual variation in real-world screen recordings.
-            Combining them in an ensemble with configurable weighting makes the pipeline more
-            robust and tunable for different research precision requirements.
+            Combining them makes the pipeline more robust and reduces both missed detections and false positives.
+          </p>
+        </section>
+
+        <!-- Multimodal Fusion -->
+        <section class="post">
+          <header><h2>How OCR &amp; CLIP Combine with YOLO</h2></header>
+          <p>
+            Once the YOLO ensemble produces a detection score, OCR and CLIP are applied as
+            supplementary signals — not as standalone detectors. Neither can trigger an exposure
+            decision on its own. They work together in a two-tier confirmation mechanism:
+          </p>
+          <ul>
+            <li><strong>Strong match</strong> — if OCR finds a brand keyword above 0.90 fuzzy confidence, or CLIP returns a semantic match above 0.90, and a corresponding YOLO detection exists, a direct confirmation bonus (+1.0) is applied, guaranteeing a positive decision.</li>
+            <li><strong>Weak match</strong> — lower-confidence matches (OCR &gt; 0.70, CLIP &gt; 0.50) add a small bonus score to reinforce borderline YOLO detections without overriding the threshold.</li>
+          </ul>
+          <p>
+            The final exposure decision is made only when the aggregated score exceeds the
+            predefined threshold. This keeps visual evidence (YOLO) as the dominant factor
+            while allowing OCR and CLIP to strengthen ambiguous cases.
+          </p>
+          <span class="image fit" style="margin-top:1rem;">
+            <img src="images/ko-pipeline-overview.png"
+              alt="Overview of the proposed multi-stage brand exposure detection pipeline" />
+          </span>
+          <p class="img-caption">Figure 4.1 — Pipeline overview: Frame Input → YOLO detection → OCR &amp; CLIP bonus signals → Aggregated score decision. (Source: thesis)</p>
+        </section>
+
+        <!-- Sample Results -->
+        <section class="post">
+          <header><h2>Sample Results</h2></header>
+          <p>
+            The following examples are drawn from real-world deployment on the Kids Online
+            dataset. All recordings are anonymised.
+          </p>
+          <span class="image fit">
+            <img src="images/ko-result-fig45.png"
+              alt="True positive recovery cases — OCR and CLIP reinforcement examples" />
+          </span>
+          <p class="img-caption">
+            Figure 4.5 — (a) True positives recovered by OCR where visual-only detection failed.
+            (b) True positives recovered through CLIP-based semantic reinforcement.
+            Both observed across desktop and mobile platforms.
+          </p>
+          <span class="image fit" style="margin-top:1.2rem;">
+            <img src="images/ko-result-fig46.png"
+              alt="Residual failure modes — false positives requiring manual verification" />
+          </span>
+          <p class="img-caption">
+            Figure 4.6 — Residual failure modes observed during large-scale deployment,
+            motivating the need for limited manual verification.
           </p>
         </section>
 
